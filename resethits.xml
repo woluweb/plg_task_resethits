@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.1" type="plugin" group="task" method="upgrade">
+    <name>plg_task_resethits</name>
+    <author>JCM</author>
+    <creationDate>2023-11-14</creationDate>
+    <copyright>GNU General Public License</copyright>
+    <license>GNU General Public License version 3, or later</license>
+    <version>1.0.0</version>
+    <description>PLG_TASK_RESETHITS_DESCRIPTION</description>
+    <namespace path="src">Joomla\Plugin\Task\Resethits</namespace>
+    <files>
+        <folder plugin="resethits">services</folder>
+        <folder>src</folder>
+        <folder>forms</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_task_resethits.ini</language>
+        <language tag="en-GB">language/en-GB/plg_task_resethits.sys.ini</language>
+    </languages>
+</extension>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="task_params">
+            <field name="reset_content" type="radio" default="0"
+			label="PLG_TASK_RESETHITS_FIELD_CONTENT_LABEL" 
+			description="PLG_TASK_RESETHITS_FIELD_CONTENT_DESC"
+			layout="joomla.form.field.radio.switcher">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="reset_tag" type="radio" default="0"
+			label="PLG_TASK_RESETHITS_FIELD_TAG_LABEL" 
+			description="PLG_TASK_RESETHITS_FIELD_TAG_DESC"
+			layout="joomla.form.field.radio.switcher">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="reset_categ" type="radio" default="0"
+			label="PLG_TASK_RESETHITS_FIELD_CATEG_LABEL" 
+			description="PLG_TASK_RESETHITS_FIELD_CATEG_DESC"
+			layout="joomla.form.field.radio.switcher">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>
