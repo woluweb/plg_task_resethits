@@ -97,13 +97,10 @@ final class Resethits extends CMSPlugin implements SubscriberInterface
     protected function resetDataHits(ExecuteTaskEvent $event): int
     {
         $this->logTask('Launching Reset hits task...', 'info');
-		$db = Factory::getDbo();
+	$db = Factory::getDbo();
         //$db     = $this->getDatabase();
 
-		$params = $event->getArgument('params');
-        $bIsContentReset = (int)$params->reset_content;
-        $bIsTagReset = (int)$params->reset_tag;
-        $bIsCategoryReset = (int)$params->reset_categ;
+	$params = $event->getArgument('params');
 
         if (!$db) {
             $this->logTask('No DB connection', 'warning');
@@ -114,30 +111,35 @@ final class Resethits extends CMSPlugin implements SubscriberInterface
             $this->logTask('Params are empty', 'warning');
             return TaskStatus::NO_RUN;
         }
+
+	    
+        $bIsContentReset = (int)$params->reset_content;
+        $bIsTagReset = (int)$params->reset_tag;
+        $bIsCategoryReset = (int)$params->reset_categ;
 		
-		if($bIsContentReset) {
-			$this->logTask('Processing Content reset...', 'info');
-			$query  = $db->getQuery(true);
-			$query->update($db->quoteName('#__content'));
+	if($bIsContentReset) {
+	    $this->logTask('Processing Content reset...', 'info');
+	    $query  = $db->getQuery(true);
+	    $query->update($db->quoteName('#__content'));
             $query->set($db->quoteName('hits') . ' = 0');
             $db->setQuery($query)->execute();
-		}
+	}
 
-		if($bIsTagReset) {
-			$this->logTask('Processing Tag reset...', 'info');
-			$query  = $db->getQuery(true);
-			$query->update($db->quoteName('#__tags'));
+	if($bIsTagReset) {
+	    $this->logTask('Processing Tag reset...', 'info');
+	    $query  = $db->getQuery(true);
+	    $query->update($db->quoteName('#__tags'));
             $query->set($db->quoteName('hits') . ' = 0');
             $db->setQuery($query)->execute();
-		}
+	}
 
-		if($bIsCategoryReset) {
-			$this->logTask('Processing Category reset...', 'info');
-			$query  = $db->getQuery(true);
-			$query->update($db->quoteName('#__categories'));
+	if($bIsCategoryReset) {
+	    $this->logTask('Processing Category reset...', 'info');
+	    $query  = $db->getQuery(true);
+	    $query->update($db->quoteName('#__categories'));
             $query->set($db->quoteName('hits') . ' = 0');
             $db->setQuery($query)->execute();
-		}
+	}
 
         $this->logTask('Completed processing reset hits.', 'info');
 
